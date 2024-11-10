@@ -8,7 +8,7 @@ To deploy the container, there are two options:
 Open a terminal and run this:
 
 ```
-docker run -d -p 6969:80 ghcr.io/gagne-3/password-generator:latest
+docker run -d -p 6969:80 --name password-generator ghcr.io/gagne-3/password-generator:latest
 ```
 
 After running this, the webpage will be accessible at `http://<your-server-ip>:6969`.
@@ -20,6 +20,7 @@ Alternatively, create a `docker-compose.yml` file and enter in the following:
 version: '3'
 services:
   random-password-webpage:
+    container_name: password-generator
     image: ghcr.io/gagne-3/password-generator:latest
     ports:
       - "6969:80"
